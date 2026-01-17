@@ -20,6 +20,13 @@ except ImportError:
 
 print(f"读取的点云包含 {points.shape[0]} 个点")
 
+# 将点云中心移到原点并单位化
+centroid = points.mean(axis=0)
+points = points - centroid
+max_dist = np.linalg.norm(points, axis=1).max()
+if max_dist > 0:
+    points = points / max_dist
+
 # 将点云转换为模型期望的格式
 num_points = 1024
 if points.shape[0] > num_points:
@@ -85,7 +92,7 @@ offset = np.array([2.0, 0, 0])  # 在X方向偏移2个单位
 restored_pcd.translate(offset)
 
 # 创建坐标系
-coordinate_frame = o3d.geometry.TriangleMesh.create_coordinate_frame(size=1.0, origin=[0, 0, 0])
+coordinate_frame = o3d.geometry.TriangleMesh.create_coordinate_frame(size=0.2, origin=[0, 0, 0])
 
 # 同时显示两个点云和坐标系
 # o3d.visualization.draw_geometries(
