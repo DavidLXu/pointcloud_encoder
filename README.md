@@ -1,4 +1,4 @@
-A good pointcloud pretrained encoder read for use.
+A good pointcloud pretrained encoder ready for use.
 
 下载 Encoder 权重, PN_128 (已经下载好保存在 ./023980.pth) 
 https://github.com/microsoft/UniGraspTransformer/tree/main/dexgrasp/pointnet/ckpts
