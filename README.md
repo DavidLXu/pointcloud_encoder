@@ -27,12 +27,12 @@ if max_dist > 0:
     points = points / max_dist
 ```
 
-<div style="display: flex; justify-content: space-between; gap: 20px; margin: 20px 0;">
-  <div style="text-align: center; width: 48%;">
-    <img src="unprocessed.png" alt="Unprocessed Point Cloud" style="width: 100%;" />
-    <p style="margin-top: 10px;"><strong>Without uncentered/non-unitized input</strong><br> Encoding and reconstruction fails </p>
-  </div>
-  <div style="text-align: center; width: 48%;">
-    <img src="unitized.png" alt="Unitized Point Cloud" style="width: 100%;" />
-    <p style="margin-top: 10px;"><strong>With centering and unitizing</strong><br>Proper encoding and reconstruction</p>
-  </div>
+**Key Insight**: Remember to center and unitize the input point cloud for proper encoding and reconstruction.
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="unprocessed.png" alt="Failed without preprocessing" width="48%" />
+  <img src="unitized.png" alt="Success with preprocessing" width="48%" />
+</div>
+<p style="text-align: center; margin-top: 5px;">
+  <small>Left: Unprocessed (fails) | Right: Centered & Unitized (works)</small>
+</p>
